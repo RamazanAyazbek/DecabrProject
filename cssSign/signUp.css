@@ -1,0 +1,143 @@
+*{
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+.button{
+    margin-top: 40px;
+    text-align: center;
+}
+.button a {
+    font-style: italic;
+    background-color: orange;
+    padding: 20px 50px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+.pop_up{
+    /* margin-top: 73px; */
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left:0;
+    top:0;
+    background-color: #4eb8dd;
+}
+
+
+.pop_up_container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.pop_up_body{
+    margin: auto;
+    width: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    padding: 50px 15px 40px 15px;
+    position: relative;
+
+}
+
+.pop_up_body p{
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 600;
+    color: #222620;
+    margin-bottom: 40px;
+}
+
+.pop_up_body input{
+    display: block;
+    margin: 25px auto 0px auto;
+    width: 330px;
+    padding: 17px 20px;
+    background-color: #E5E5E5;
+    border-radius: 10px;
+    border: none; 
+    font-style: italic;
+    font-weight: 500;
+    font-size: 18px;
+    color: #000000;
+}
+.pop_up_body input:focus{
+    outline: none;
+}
+
+.pop_up_body button{
+    display: block;
+    position: relative;
+    width:330px; 
+    margin: 60px auto 0px auto;
+    padding: 20px 0px;
+    font-size: 16px;
+    background-color: orange;
+    color: #fff;
+    font-style: italic;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: width .5s;
+    border-radius: .5s;
+}
+.pop_up_body button *{
+    position: absolute;
+    top:50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity .25s;
+}
+
+
+.icon{
+    opacity: 0;
+}
+
+.pop_up_body button:focus{
+    width: 70px;
+    background-color: #1fec93;
+    border-radius: 50%;
+    font-size: 10px;
+}
+.pop_up_body button:focus text{
+    opacity: 0;
+}
+.pop_up_body button:focus icon{
+    opacity: 0;
+}
+.input-group{
+    position: relative;
+}
+.input-label{
+    position: absolute;
+    top: 0;
+    left: -10px;
+    transform: translate(100px, 19px);
+    transition: transform .25s;
+}
+.input_t:focus+.input-label,
+.input_t:valid+.input-label
+{
+
+transform: 
+translate(87px, -25px) scale(.8);
+
+}
+.footer_regitrs{
+    /* float:left;  */
+}
+.to_login{
+    margin-top: 20px;
+    color: #217093; 
+    font-weight: 700;
+    border-bottom: 2px solid #217093; 
+}
+.to_login:hover{
+    color:#063244;
+    border-bottom: 2px solid #063244;
+}
