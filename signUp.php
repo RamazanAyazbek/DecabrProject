@@ -1,3 +1,10 @@
+<?php 
+
+  require_once 'db.php';
+  require_once 'user.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,21 +83,22 @@
         <div class="pop_up_container">
             <div class="pop_up_body" id="pop_up_body">
                 <p>Регистрация</p>
-                <form action="">
+                <form action="toregister.php" method="post">
                     <div class="input-group">
-                        <input type="text" required  class="input_t">
-                        <label for="name" class="input-label"> Имя</label>
+                        <input type="text" required  class="input_t" name="full_name">
+                        <label for="name" class="input-label" > Имя</label>
                     </div>
+                    
                     <div class="input-group">
-                        <input type="text" required  class="input_t">
-                        <label for="surname" class="input-label"> Фамилия</label>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" required  class="input_t">
+                        <input type="text" required  class="input_t" name="email">
                         <label for="email" class="input-label"> e-mail</label>
                     </div>
                     <div class="input-group">
-                        <input type="password" required  class="input_t">
+                        <input type="password" required  class="input_t" name="pass1">
+                        <label for="password" class="input-label"> пароль</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" required  class="input_t" name="pass2">
                         <label for="password" class="input-label"> пароль</label>
                     </div>
                     
@@ -100,7 +108,7 @@
                     </button>
                     <div class="footer_regitrs">
                     <span>If you registrated, then go  </span>
-                    <a class="to_login" href="signIn.html">Log in</a> 
+                    <a class="to_login" href="signIn.php">Log in</a> 
                     </div>
                 </form>
 

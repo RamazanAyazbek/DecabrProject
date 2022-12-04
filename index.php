@@ -1,3 +1,10 @@
+<?php 
+
+  require_once 'db.php';
+  require_once 'user.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,63 +28,115 @@
       </div>
       <div class="ul">
         <ul>
-            <li class="list active">
+
+          <?php 
+            if(ONLINE){
+
+          ?>
+
+          <li class="list active">
                 <a  href="#">
                     <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                     <span class="text">Home </span>
                 </a>
             </li>
             <li class="list">
-                <a href="profile.html" >
+                <a href="profile.php" >
                     <span class="icon"><ion-icon name="people-circle-outline"></ion-icon></span>
                     <span class="text">Profile </span>
                 </a>
             </li>
             <li class="list">
-                <a href="message.html">
+                <a href="message.php">
                     <span class="icon"><ion-icon name="chatbubbles-outline"></ion-icon></span>
                     <span class="text">Message</span>
                 </a>
             </li>
             <li class="list">
-                <a href="topics.html">
+                <a href="topics.php">
                     <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
                     <span class="text">Topics</span>
                 </a>
             </li>
             <li class="list">
-                <a href="settings.html" onclick="openTab('Settings')">
+                <a href="settings.php" onclick="openTab('Settings')">
                     <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
                     <span class="text">Settings</span>
                 </a>
             </li>
             <div class="indicator0"></div>
+
+          <?php 
+            }else{
+
+          ?>
+
+          <li class="list active">
+                <a  href="#">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="text">Home </span>
+                </a>
+            </li>
+            
+            <li class="list">
+                <a href="message.php">
+                    <span class="icon"><ion-icon name="chatbubbles-outline"></ion-icon></span>
+                    <span class="text">Message</span>
+                </a>
+            </li>
+            
+            <li class="list">
+                <a href="settings.php" onclick="openTab('Settings')">
+                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <div class="indicator0"></div>
+
+          <?php 
+            }
+          ?>
+            
         </ul>
       </div>
-        <div class="nav-logo1">
-          <div class="registr_zero">
-          <div class="before_registr">
-          <!-- SIGN IN -->
-          
-          <div class="button-login center_text"><a class="reaction" href="signIn.html" id="open_signin">Sign In</a></div>
-          <!-- SIGN UP-->
-          <div class="button center_text"><a class="reaction" href="signUp.html" id="open_pop_up">Sign Up</a></div>
-        </div>
-      </div>
+
+      <?php 
+        if(ONLINE){
+      ?>
+
         <div class="registr_one">
         <div class="after_registr">
-          <div class="name_user "><img src="img/Deng.jpg" alt=""> <span>Abdikayr Magzhan</span></div>
-          <div class="sign-out "><a href="#">Log out</a></div>
+          <div class="name_user "><img src="img/Deng.jpg" alt=""> <span><?php echo $_SESSION['CURRENT_USER']['full_name'];?></span></div>
+          <div class="sign-out "><a href="logout.php">Log out</a></div>
         </div>
       </div>
-        <style>
-
-            
-        </style>
+        
        
 
 
         </div>
+
+      <?php 
+        }else{
+      ?>
+
+      <div class="nav-logo1">
+          <div class="registr_zero">
+          <div class="before_registr">
+          <!-- SIGN IN -->
+          
+          <div class="button-login center_text"><a class="reaction" href="signIn.php" id="open_signin">Sign In</a></div>
+          <!-- SIGN UP-->
+          <div class="button center_text"><a class="reaction" href="signUp.php" id="open_pop_up">Sign Up</a></div>
+        </div>
+      </div>
+       
+        </div>
+
+      <?php 
+        }
+      ?>
+        
     </div>
   </div>
 
@@ -87,7 +146,7 @@
 <div class="main-body">
   <div class="wrapper">
     <div class="container">
-      <a href="open_card.html">
+      <a href="open_card.php">
         <div class="card rgb" data-tilt data-tilt-scale="1.2">
           <div class="card-image2"></div>
           <div class="card-text">
@@ -98,7 +157,7 @@
        
         </div>
       </a>
-        <a href="open_card.html">
+        <a href="open_card.php">
         <div class="card rgb" data-tilt data-tilt-scale="1.2">
           <div class="card-image2"></div>
           <div class="card-text">
@@ -109,7 +168,7 @@
        
         </div>
       </a>
-      <a href="open_card.html">
+      <a href="open_card.php">
         <div class="card rgb" data-tilt data-tilt-scale="1.2">
           <div class="card-image2"></div>
           <div class="card-text">
@@ -123,7 +182,7 @@
         
   </div>
   <div class="container">
-    <a href="open_card.html">
+    <a href="open_card.php">
       <div class="card rgb" data-tilt data-tilt-scale="1.2">
         <div class="card-image2"></div>
         <div class="card-text">
@@ -134,7 +193,7 @@
      
       </div>
     </a>
-      <a href="open_card.html">
+      <a href="open_card.php">
       <div class="card rgb" data-tilt data-tilt-scale="1.2">
         <div class="card-image2"></div>
         <div class="card-text">
@@ -145,7 +204,7 @@
      
       </div>
     </a>
-    <a href="open_card.html">
+    <a href="open_card.php">
       <div class="card rgb" data-tilt data-tilt-scale="1.2">
         <div class="card-image2"></div>
         <div class="card-text">
@@ -292,7 +351,7 @@
         <div class="bar"></div>
        </div>
        <audio controls autoplay class="audio">
-        <source src="music/ReelAudio-8031.mp3" type="audio/mpeg">
+        <source src="#" type="audio/mpeg">
     
       </audio>
      </div>

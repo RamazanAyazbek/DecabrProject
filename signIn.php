@@ -1,3 +1,10 @@
+<?php 
+
+  require_once 'db.php';
+  require_once 'user.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -31,63 +38,115 @@
 		   </div>
 		   <div class="ul">
 			 <ul>
-				 <li class="list active">
-					 <a  href="index.html">
-						 <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-						 <span class="text">Home </span>
-					 </a>
-				 </li>
-				 <li class="list">
-					 <a href="profile.html" >
-						 <span class="icon"><ion-icon name="people-circle-outline"></ion-icon></span>
-						 <span class="text">Profile </span>
-					 </a>
-				 </li>
-				 <li class="list">
-					 <a href="message.html">
-						 <span class="icon"><ion-icon name="chatbubbles-outline"></ion-icon></span>
-						 <span class="text">Message</span>
-					 </a>
-				 </li>
-				 <li class="list">
-					 <a href="topics.html">
-						 <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
-						 <span class="text">Topics</span>
-					 </a>
-				 </li>
-				 <li class="list">
-					 <a href="settings.html" onclick="openTab('Settings')">
-						 <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-						 <span class="text">Settings</span>
-					 </a>
-				 </li>
-				 <div class="indicator0"></div>
-			 </ul>
-		   </div>
-			 <div class="nav-logo1">
-			   <div class="registr_zero">
-			   <div class="before_registr">
-			   <!-- SIGN IN -->
-			   
-			   <div class="button-login center_text"><a class="reaction" href="signIn.html" id="open_signin">Sign In</a></div>
-			   <!-- SIGN UP-->
-			   <div class="button center_text"><a class="reaction" href="signUp.html" id="open_pop_up">Sign Up</a></div>
-			 </div>
-		   </div>
-			 <div class="registr_one">
-			 <div class="after_registr">
-			   <div class="name_user "><img src="img/Deng.jpg" alt=""> <span>Abdikayr Magzhan</span></div>
-			   <div class="sign-out "><a href="#">Log out</a></div>
-			 </div>
-		   </div>
-			 <style>
-	 
-				 
-			 </style>
-			
-	 
-	 
-			 </div>
+				 <?php 
+            if(ONLINE){
+
+          ?>
+
+          <li class="list active">
+                <a  href="index.php">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="text">Home </span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="profile.php" >
+                    <span class="icon"><ion-icon name="people-circle-outline"></ion-icon></span>
+                    <span class="text">Profile </span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="message.php">
+                    <span class="icon"><ion-icon name="chatbubbles-outline"></ion-icon></span>
+                    <span class="text">Message</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="topics.php">
+                    <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
+                    <span class="text">Topics</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="settings.php" onclick="openTab('Settings')">
+                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <div class="indicator0"></div>
+
+          <?php 
+            }else{
+
+          ?>
+
+          <li class="list active">
+                <a  href="index.php">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="text">Home </span>
+                </a>
+            </li>
+            
+            <li class="list">
+                <a href="message.php">
+                    <span class="icon"><ion-icon name="chatbubbles-outline"></ion-icon></span>
+                    <span class="text">Message</span>
+                </a>
+            </li>
+            
+            <li class="list">
+                <a href="settings.php" onclick="openTab('Settings')">
+                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <div class="indicator0"></div>
+
+          <?php 
+            }
+          ?>
+            
+        </ul>
+      </div>
+
+      <?php 
+        if(ONLINE){
+      ?>
+
+        <div class="registr_one">
+        <div class="after_registr">
+          <div class="name_user "><img src="img/Deng.jpg" alt=""> <span><?php echo $_SESSION['CURRENT_USER']['full_name'];?></span></div>
+          <div class="sign-out "><a href="logout.php">Log out</a></div>
+        </div>
+      </div>
+        
+       
+
+
+        </div>
+
+      <?php 
+        }else{
+      ?>
+
+      <div class="nav-logo1">
+          <div class="registr_zero">
+          <div class="before_registr">
+          <!-- SIGN IN -->
+          
+          <div class="button-login center_text"><a class="reaction" href="signIn.php" id="open_signin">Sign In</a></div>
+          <!-- SIGN UP-->
+          <div class="button center_text"><a class="reaction" href="signUp.php" id="open_pop_up">Sign Up</a></div>
+        </div>
+      </div>
+       
+        </div>
+
+      <?php 
+        }
+      ?>
+
+
 		 </div>
 	   </div>
 	 
@@ -95,7 +154,7 @@
 
 
 
-<form class="form_signIn">
+<form class="form_signIn" action="tologin.php" method="post">
 	<div class="svgContainer">
 		<div>
 			<svg class="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
@@ -204,12 +263,12 @@
 	
 	<div class="inputGroup inputGroup1">
 		<label for="loginEmail" id="loginEmailLabel">Email</label>
-		<input type="email" id="loginEmail" maxlength="254" />
+		<input type="email" name="email" id="loginEmail" maxlength="254" />
 		<p class="helper helper1">email@domain.com</p>
 	</div>
 	<div class="inputGroup inputGroup2">
 		<label for="loginPassword" id="loginPasswordLabel">Password</label>
-		<input type="password" id="loginPassword" />
+		<input type="password" name="password" id="loginPassword" />
 		<label id="showPasswordToggle" for="showPasswordCheck">Show
 			<input id="showPasswordCheck" type="checkbox"/>
 			<div class="indicator"></div>
